@@ -11,12 +11,15 @@ using System.Windows.Forms;
 
 namespace Fahrpan
 {
-    public partial class Form1 : Form
+    public partial class Anfangsview : Form
     {
-        private ITransport testee;
-        public Form1()
+        private String Kürzungsdauer(string result)
         {
-            
+            String Dauer = result.Substring(3, 5);
+            return Dauer;
+                    }
+        public Anfangsview()
+        {
             InitializeComponent();
         }
 
@@ -29,33 +32,39 @@ namespace Fahrpan
             }
             else
             {
-                
-                for (int i = 0; i <= 4; i++)
+                listBox1.Items.Clear();
+                var testee = new Transport();
+                var connectionlist = testee.GetConnections(textBox4.Text, textBox3.Text);
+                foreach (var connection in connectionlist.ConnectionList)
                 {
-                    var testee = new Transport();
-                    var station = testee.GetConnections(textBox4.Text, textBox3.Text);
-
-
-                    Connection result = station.ConnectionList[i];
-                    ConnectionPoint from = result.From;
-                    ConnectionPoint to = result.To;
-
-                    MessageBox.Show("Von: " + from.Station.Name + "\n"
-                        + "Abfahrt um: " + result.From.Departure + "\n"
-                        + "Nach: " + to.Station.Name + "\n"
-                        + "Ankunft an: " + result.To.Arrival + "n"
-                        + "Dauer: " + result.Duration
-                        );
+                    ConnectionPoint from = connection.From;
+                    ConnectionPoint to = connection.To;
+                    var departure = DateTime.Parse(connection.From.Departure);
+                    var arrival = DateTime.Parse(connection.To.Arrival);
+             
+                    listBox1.Items.Add("Von: " + from.Station.Name + "\n"
+                        + "   Abfahrt um: " + departure.ToString("hh.mm") + "\n"
+                        + "   Nach: " + to.Station.Name + "\n"
+                        + "   Ankunft an: " + arrival.ToString("hh.mm") + "\n"
+                        + "   Dauer: " + Kürzungsdauer(connection.Duration));
                 }
             }
         }
 
         private void Los_Click(object sender, EventArgs e)
         {
-           /* testee = new Transport();
-            var stationBoard = testee.GetStationBoard("Sursee", "8502007");
-            var station = station.ConnectionPoint[0];
-            MessageBox.Show(stationBoard.Station); */
+           /* var station = stationList.StationList[0];
+                string id = station.Id;
+                var stationboard = Transport.GetStationBoard(txtStation.Text, id)
+                */
+
+
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

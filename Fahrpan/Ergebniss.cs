@@ -17,8 +17,13 @@ namespace Fahrpan
         {
             InitializeComponent();
         }
-        
+        public string Ankunft { get; set; }
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
         {
 
         }
