@@ -43,6 +43,7 @@
             this.Station = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -140,13 +141,14 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.listBox2);
             this.tabPage2.Controls.Add(this.Los);
             this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.Station);
             this.tabPage2.Location = new System.Drawing.Point(8, 39);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(526, 795);
+            this.tabPage2.Size = new System.Drawing.Size(2071, 795);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Bahnhof Fahrplan";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -196,6 +198,15 @@
             this.listBox1.TabIndex = 22;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 25;
+            this.listBox2.Location = new System.Drawing.Point(54, 317);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(686, 429);
+            this.listBox2.TabIndex = 3;
+            // 
             // Anfangsview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -230,6 +241,7 @@
         private System.Windows.Forms.Button Los;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox2;
     }
 }
 

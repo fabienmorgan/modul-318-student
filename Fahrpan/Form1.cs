@@ -13,6 +13,7 @@ namespace Fahrpan
 {
     public partial class Anfangsview : Form
     {
+        private ITransport testee;
         private String Kürzungsdauer(string result)
         {
             String Dauer = result.Substring(3, 5);
@@ -53,10 +54,23 @@ namespace Fahrpan
 
         private void Los_Click(object sender, EventArgs e)
         {
-           /* var station = stationList.StationList[0];
-                string id = station.Id;
-                var stationboard = Transport.GetStationBoard(txtStation.Text, id)
-                */
+            listBox2.Items.Clear();
+            testee = new Transport();
+            Stations stations = testee.GetStations(textBox1.Text);
+            Station station = stations.StationList[0];
+            String id = station.Id;
+
+
+
+            StationBoardRoot stationBoard = testee.GetStationBoard(textBox1.Text, id);
+
+
+            foreach (StationBoard entries in stationBoard.Entries)
+            {
+
+                var item = new ListViewItem(new[] { entries.Stop.Departure.ToString(), entries.Category, entries.Name, station.Name, entries.To });
+                listBox2.Items.Add(item);
+            }
 
 
 
