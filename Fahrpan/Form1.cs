@@ -54,7 +54,7 @@ namespace Fahrpan
 
         private void Los_Click(object sender, EventArgs e)
         {
-            listBox2.Items.Clear();
+            listView2.Items.Clear();
             testee = new Transport();
             Stations stations = testee.GetStations(textBox1.Text);
             Station station = stations.StationList[0];
@@ -67,9 +67,9 @@ namespace Fahrpan
 
             foreach (StationBoard entries in stationBoard.Entries)
             {
-
-                var item = new ListViewItem(new[] { entries.Stop.Departure.ToString(), entries.Category, entries.Name, station.Name, entries.To });
-                listBox2.Items.Add(item);
+                var Zeit = DateTime.Parse(entries.Stop.Departure.ToString());
+                var item = new ListViewItem(new[] { Zeit.ToString("hh.mm"), entries.Category, entries.Name, station.Name, entries.To });
+                listView2.Items.Add(item);
             }
 
 
@@ -79,6 +79,20 @@ namespace Fahrpan
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Anfangsview_Load(object sender, EventArgs e)
+        {
+            listView2.Columns.Add("Zeit");
+            listView2.Columns.Add("Name");
+            listView2.Columns.Add("Nummer");
+            listView2.Columns.Add("Von");
+            listView2.Columns.Add("Nach");
         }
     }
 }
