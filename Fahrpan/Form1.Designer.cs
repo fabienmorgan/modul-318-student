@@ -30,12 +30,20 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox3 = new System.Windows.Forms.ComboBox();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.ComboBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Suchen = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -43,14 +51,6 @@
             this.Los = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Station = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -68,6 +68,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.textBox3);
             this.tabPage1.Controls.Add(this.button8);
             this.tabPage1.Controls.Add(this.button7);
             this.tabPage1.Controls.Add(this.button6);
@@ -81,7 +82,6 @@
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.Suchen);
             this.tabPage1.Controls.Add(this.dateTimePicker2);
-            this.tabPage1.Controls.Add(this.textBox3);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Location = new System.Drawing.Point(8, 39);
@@ -91,6 +91,89 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Fahrplan";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBox3
+            // 
+            this.textBox3.FormattingEnabled = true;
+            this.textBox3.Location = new System.Drawing.Point(158, 302);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(178, 33);
+            this.textBox3.TabIndex = 32;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(1557, 115);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(93, 37);
+            this.button8.TabIndex = 31;
+            this.button8.Text = "EMail";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(1557, 160);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(93, 39);
+            this.button7.TabIndex = 30;
+            this.button7.Text = "EMail";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(1557, 205);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(93, 37);
+            this.button6.TabIndex = 29;
+            this.button6.Text = "EMail";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(1557, 248);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(93, 37);
+            this.button5.TabIndex = 28;
+            this.button5.Text = "EMail";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1557, 73);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(93, 36);
+            this.button3.TabIndex = 26;
+            this.button3.Text = "EMail";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(158, 365);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(178, 39);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "Karte";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(158, 183);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(178, 39);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Karte";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox4
+            // 
+            this.textBox4.FormattingEnabled = true;
+            this.textBox4.Location = new System.Drawing.Point(158, 133);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(178, 33);
+            this.textBox4.TabIndex = 23;
+            this.textBox4.TextChanged += new System.EventHandler(this.textbox3_Autocomplete);
             // 
             // listBox1
             // 
@@ -137,13 +220,6 @@
             this.dateTimePicker2.Size = new System.Drawing.Size(273, 31);
             this.dateTimePicker2.TabIndex = 18;
             this.dateTimePicker2.Value = new System.DateTime(2017, 5, 14, 0, 0, 0, 0);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(158, 313);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(178, 31);
-            this.textBox3.TabIndex = 17;
             // 
             // label1
             // 
@@ -216,80 +292,6 @@
             this.Station.TabIndex = 0;
             this.Station.Text = "Stationen";
             // 
-            // textBox4
-            // 
-            this.textBox4.FormattingEnabled = true;
-            this.textBox4.Location = new System.Drawing.Point(158, 133);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(178, 33);
-            this.textBox4.TabIndex = 23;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(158, 183);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(178, 39);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Karte";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(158, 365);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(178, 39);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Karte";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1557, 73);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 36);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "EMail";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(1557, 248);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(93, 37);
-            this.button5.TabIndex = 28;
-            this.button5.Text = "EMail";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(1557, 205);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(93, 37);
-            this.button6.TabIndex = 29;
-            this.button6.Text = "EMail";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(1557, 160);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(93, 39);
-            this.button7.TabIndex = 30;
-            this.button7.Text = "EMail";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(1557, 115);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(93, 37);
-            this.button8.TabIndex = 31;
-            this.button8.Text = "EMail";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
             // Anfangsview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -314,7 +316,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button Suchen;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabPage2;
@@ -333,6 +334,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox textBox3;
     }
 }
 

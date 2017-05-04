@@ -20,13 +20,16 @@ namespace Fahrpan
         {
             String Dauer = result.Substring(3, 5);
             return Dauer;
-                    }
+        }
         public Anfangsview()
         {
             InitializeComponent();
+            testee = new Transport();
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.CustomFormat = "dd.MM.yyyy | HH:mm";
             textBox4.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.textBox4.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.textBox4.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         private void Suchen_Click(object sender, EventArgs e)
@@ -45,7 +48,7 @@ namespace Fahrpan
                 String formattetDate = date.ToString("yyyy-MM-dd");
                 String time = inputTime.Substring(12, 6);
                 var connectionlist = testee.GetConnections(textBox4.Text, textBox3.Text, formattetDate, time);
-                
+
 
 
 
@@ -56,7 +59,8 @@ namespace Fahrpan
                     ConnectionPoint to = connection.To;
                     var departure = DateTime.Parse(connection.From.Departure);
                     var arrival = DateTime.Parse(connection.To.Arrival);
-             
+
+
                     listBox1.Items.Add("Von: " + from.Station.Name + "\n"
                         + "   Abfahrt um: " + departure.ToString("hh.mm") + "\n"
                         + "   Nach: " + to.Station.Name + "\n"
@@ -89,12 +93,11 @@ namespace Fahrpan
 
 
         }
-        private void tbVon_TextChanged(object sender, EventArgs e)
+        public void textbox3_Autocomplete(object sender, EventArgs e)
         {
-         
             input = textBox4.Text;
 
-            if (input.Length > 3)
+            if (input.Length >= 3)
             {
                 needAutoCompleteUpdate = true;
             }
@@ -110,17 +113,20 @@ namespace Fahrpan
                 {
                     textBox4.AutoCompleteCustomSource.Add(stationName.Name);
                 }
-                this.textBox4.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                this.textBox4.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                this.textBox4.AutoCompleteMode = AutoCompleteMode.Suggest;
             }
-
+            else
+            {
+                //this.textBox4.AutoCompleteMode = AutoCompleteMode.None;
+            }
         }
+
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
-     
+
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -172,11 +178,20 @@ namespace Fahrpan
             }
         }
 
+        private void shareEmail(String from, String to, String timefrom, String timeto, String time)
+        {
+            String url = "mailto:?subject=Öv%20Verbindungen&body=ÖV%20Verbindung%20zwischen%20" +
+                            from + " - " + to + "%0A" +
+                            "Abfahrt: " + timefrom + "%0A" +
+                            "Ankunft: " + timeto + "%0A" +
+                            "Dauer: " + time;
+            System.Diagnostics.Process.Start(url);
+
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
-           var email = "mailto:?subject =  Verbindungen Title & body = Message Content";
 
-            System.Diagnostics.Process.Start(email);
 
         }
     }
