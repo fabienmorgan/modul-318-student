@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Net;
 using Newtonsoft.Json;
 
@@ -65,6 +66,11 @@ namespace SwissTransport
             request.Proxy = webProxy;
             
             return request;
+        }
+
+        public Connections GetConnections(string fromStation, string toStattion, string date, string time)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -120,8 +120,9 @@
             // 
             this.dateTimePicker2.Location = new System.Drawing.Point(133, 501);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(260, 31);
+            this.dateTimePicker2.Size = new System.Drawing.Size(273, 31);
             this.dateTimePicker2.TabIndex = 18;
+            this.dateTimePicker2.Value = new System.DateTime(2017, 5, 14, 0, 0, 0, 0);
             // 
             // textBox3
             // 
@@ -202,7 +203,7 @@
             // 
             this.listView2.Location = new System.Drawing.Point(80, 323);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(857, 437);
+            this.listView2.Size = new System.Drawing.Size(659, 437);
             this.listView2.TabIndex = 4;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;

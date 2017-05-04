@@ -22,6 +22,9 @@ namespace Fahrpan
         public Anfangsview()
         {
             InitializeComponent();
+            dateTimePicker2.Format = DateTimePickerFormat.Custom;
+            dateTimePicker2.CustomFormat = "dd.MM.yyyy | HH:mm";
+            textBox4.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
 
         private void Suchen_Click(object sender, EventArgs e)
@@ -35,9 +38,17 @@ namespace Fahrpan
             {
                 listBox1.Items.Clear();
                 var testee = new Transport();
+                
                 var connectionlist = testee.GetConnections(textBox4.Text, textBox3.Text);
+                string inputTime = dateTimePicker2.Text;
+                var date = DateTime.Parse(inputTime.Substring(0, 10));
+                String formattetDate = date.ToString("yyyy-MM-dd");
+                String time = inputTime.Substring(12, 6);
+
+
                 foreach (var connection in connectionlist.ConnectionList)
                 {
+
                     ConnectionPoint from = connection.From;
                     ConnectionPoint to = connection.To;
                     var departure = DateTime.Parse(connection.From.Departure);
@@ -68,7 +79,7 @@ namespace Fahrpan
             foreach (StationBoard entries in stationBoard.Entries)
             {
                 var Zeit = DateTime.Parse(entries.Stop.Departure.ToString());
-                var item = new ListViewItem(new[] { Zeit.ToString("hh.mm"), entries.Category, entries.Name, station.Name, entries.To });
+                var item = new ListViewItem(new[] { Zeit.ToString("hh.mm"), entries.Category, entries.Name, entries.To });
                 listView2.Items.Add(item);
             }
 
@@ -91,8 +102,8 @@ namespace Fahrpan
             listView2.Columns.Add("Zeit");
             listView2.Columns.Add("Name");
             listView2.Columns.Add("Nummer");
-            listView2.Columns.Add("Von");
             listView2.Columns.Add("Nach");
+            listView2.Columns[3].Width = 130;
         }
     }
 }
