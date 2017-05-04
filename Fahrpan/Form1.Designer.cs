@@ -36,14 +36,16 @@
             this.Suchen = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.listView2 = new System.Windows.Forms.ListView();
             this.Los = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Station = new System.Windows.Forms.Label();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.textBox4 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -61,13 +63,15 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.textBox4);
             this.tabPage1.Controls.Add(this.listBox1);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.Suchen);
             this.tabPage1.Controls.Add(this.dateTimePicker2);
             this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.textBox4);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Location = new System.Drawing.Point(8, 39);
@@ -131,13 +135,6 @@
             this.textBox3.Size = new System.Drawing.Size(178, 31);
             this.textBox3.TabIndex = 17;
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(158, 125);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(178, 31);
-            this.textBox4.TabIndex = 16;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -172,6 +169,16 @@
             this.tabPage2.Text = "Bahnhof Fahrplan";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // listView2
+            // 
+            this.listView2.Location = new System.Drawing.Point(80, 323);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(659, 437);
+            this.listView2.TabIndex = 4;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
             // Los
             // 
             this.Los.Location = new System.Drawing.Point(189, 193);
@@ -199,15 +206,33 @@
             this.Station.TabIndex = 0;
             this.Station.Text = "Stationen";
             // 
-            // listView2
+            // textBox4
             // 
-            this.listView2.Location = new System.Drawing.Point(80, 323);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(659, 437);
-            this.listView2.TabIndex = 4;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.textBox4.FormattingEnabled = true;
+            this.textBox4.Location = new System.Drawing.Point(158, 133);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(178, 33);
+            this.textBox4.TabIndex = 23;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(158, 183);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(178, 39);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Karte";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(158, 365);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(178, 39);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "Karte";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Anfangsview
             // 
@@ -234,7 +259,6 @@
         private System.Windows.Forms.Button Suchen;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabPage2;
@@ -245,6 +269,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ComboBox textBox4;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
 

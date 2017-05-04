@@ -14,6 +14,8 @@ namespace Fahrpan
     public partial class Anfangsview : Form
     {
         private ITransport testee;
+        private String input;
+        private bool needAutoCompleteUpdate = false;
         private String Kürzungsdauer(string result)
         {
             String Dauer = result.Substring(3, 5);
@@ -38,12 +40,13 @@ namespace Fahrpan
             {
                 listBox1.Items.Clear();
                 var testee = new Transport();
-                
-                var connectionlist = testee.GetConnections(textBox4.Text, textBox3.Text);
                 string inputTime = dateTimePicker2.Text;
                 var date = DateTime.Parse(inputTime.Substring(0, 10));
                 String formattetDate = date.ToString("yyyy-MM-dd");
                 String time = inputTime.Substring(12, 6);
+                var connectionlist = testee.GetConnections(textBox4.Text, textBox3.Text, formattetDate, time);
+                
+
 
 
                 foreach (var connection in connectionlist.ConnectionList)
@@ -86,11 +89,38 @@ namespace Fahrpan
 
 
         }
+        private void tbVon_TextChanged(object sender, EventArgs e)
+        {
+         
+            input = textBox4.Text;
 
+            if (input.Length > 3)
+            {
+                needAutoCompleteUpdate = true;
+            }
+            else
+            {
+                needAutoCompleteUpdate = false;
+            }
+            if (needAutoCompleteUpdate)
+            {
+                var stations = testee.GetStations(input);
+
+                foreach (Station stationName in stations.StationList)
+                {
+                    textBox4.AutoCompleteCustomSource.Add(stationName.Name);
+                }
+                this.textBox4.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                this.textBox4.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            }
+
+        }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
         }
+
+     
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -104,6 +134,42 @@ namespace Fahrpan
             listView2.Columns.Add("Nummer");
             listView2.Columns.Add("Nach");
             listView2.Columns[3].Width = 130;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            testee = new Transport();
+            Stations stations = testee.GetStations(textBox4.Text);
+
+            if (stations.StationList.Count > 0)
+            {
+                Station station = stations.StationList[0];
+
+
+                System.Diagnostics.Process.Start("https://www.google.ch/maps/search/" + station.Name + " haltestelle");
+            }
+            else
+            {
+                MessageBox.Show("Geben Sie bitte eine Station ein");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            testee = new Transport();
+            Stations stations = testee.GetStations(textBox3.Text);
+
+            if (stations.StationList.Count > 0)
+            {
+                Station station = stations.StationList[0];
+
+
+                System.Diagnostics.Process.Start("https://www.google.ch/maps/search/" + station.Name + " haltestelle");
+            }
+            else
+            {
+                MessageBox.Show("Geben Sie bitte eine Station ein");
+            }
         }
     }
 }
