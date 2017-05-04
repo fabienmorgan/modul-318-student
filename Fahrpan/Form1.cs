@@ -171,5 +171,13 @@ namespace Fahrpan
                 MessageBox.Show("Geben Sie bitte eine Station ein");
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+           var email = "mailto:?subject =  Verbindungen Title & body = Message Content";
+
+            System.Diagnostics.Process.Start(email);
+
+        }
     }
 }
