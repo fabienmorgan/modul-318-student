@@ -1,6 +1,3 @@
 # modul-318-Student
 
-Students!
-Fork this repository to your own Github account. Work there with this repository. The intructor will clone your repo for inspection and evaluation.
-
-Have Fun!
+Die Fahrplan App ist die beste App der Welt. Laden Sie sie runter und Sie werden ein sofortigen unterschied in Ihrem Leben spüren. Die lebensqualität wird sich um 500% verbessern.
