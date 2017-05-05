@@ -15,8 +15,8 @@ namespace Fahrpan
     public partial class Fahrplan : Form
     {
         private ITransport Transport;
-        private String input;
-        private bool needAutoCompleteUpdate = false;
+        //private String input;
+        //private bool needAutoCompleteUpdate = false;
         private String Kürzungsdauer(string result)
         {
             String Dauer = result.Substring(3, 5);
