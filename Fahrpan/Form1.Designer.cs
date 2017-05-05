@@ -1,6 +1,6 @@
 ﻿namespace Fahrpan
 {
-    partial class Anfangsview
+    partial class Fahrplan
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -31,16 +31,16 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.Ausgabe = new System.Windows.Forms.ListView();
-            this.textBox3 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.ComboBox();
+            this.nachtxt = new System.Windows.Forms.ComboBox();
+            this.KarteNach = new System.Windows.Forms.Button();
+            this.KarteVon = new System.Windows.Forms.Button();
+            this.Vontxt = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.Fehlermeldung = new System.Windows.Forms.Label();
             this.Suchen = new System.Windows.Forms.Button();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Kalender = new System.Windows.Forms.DateTimePicker();
+            this.Nachlbl = new System.Windows.Forms.Label();
+            this.Vonlbl = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.listView2 = new System.Windows.Forms.ListView();
             this.Los = new System.Windows.Forms.Button();
@@ -64,16 +64,16 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.Ausgabe);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.textBox4);
+            this.tabPage1.Controls.Add(this.nachtxt);
+            this.tabPage1.Controls.Add(this.KarteNach);
+            this.tabPage1.Controls.Add(this.KarteVon);
+            this.tabPage1.Controls.Add(this.Vontxt);
             this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.Fehlermeldung);
             this.tabPage1.Controls.Add(this.Suchen);
-            this.tabPage1.Controls.Add(this.dateTimePicker2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.Kalender);
+            this.tabPage1.Controls.Add(this.Nachlbl);
+            this.tabPage1.Controls.Add(this.Vonlbl);
             this.tabPage1.Location = new System.Drawing.Point(8, 39);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -92,41 +92,41 @@
             this.Ausgabe.View = System.Windows.Forms.View.Details;
             this.Ausgabe.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Ausgabe_MouseClick);
             // 
-            // textBox3
+            // nachtxt
             // 
-            this.textBox3.FormattingEnabled = true;
-            this.textBox3.Location = new System.Drawing.Point(158, 302);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(178, 33);
-            this.textBox3.TabIndex = 32;
+            this.nachtxt.FormattingEnabled = true;
+            this.nachtxt.Location = new System.Drawing.Point(158, 302);
+            this.nachtxt.Name = "nachtxt";
+            this.nachtxt.Size = new System.Drawing.Size(178, 33);
+            this.nachtxt.TabIndex = 32;
             // 
-            // button2
+            // KarteNach
             // 
-            this.button2.Location = new System.Drawing.Point(158, 365);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(178, 39);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Karte";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.KarteNach.Location = new System.Drawing.Point(158, 365);
+            this.KarteNach.Name = "KarteNach";
+            this.KarteNach.Size = new System.Drawing.Size(178, 39);
+            this.KarteNach.TabIndex = 25;
+            this.KarteNach.Text = "Karte";
+            this.KarteNach.UseVisualStyleBackColor = true;
+            this.KarteNach.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // KarteVon
             // 
-            this.button1.Location = new System.Drawing.Point(158, 183);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(178, 39);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Karte";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.KarteVon.Location = new System.Drawing.Point(158, 183);
+            this.KarteVon.Name = "KarteVon";
+            this.KarteVon.Size = new System.Drawing.Size(178, 39);
+            this.KarteVon.TabIndex = 24;
+            this.KarteVon.Text = "Karte";
+            this.KarteVon.UseVisualStyleBackColor = true;
+            this.KarteVon.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox4
+            // Vontxt
             // 
-            this.textBox4.FormattingEnabled = true;
-            this.textBox4.Location = new System.Drawing.Point(158, 133);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(178, 33);
-            this.textBox4.TabIndex = 23;
+            this.Vontxt.FormattingEnabled = true;
+            this.Vontxt.Location = new System.Drawing.Point(158, 133);
+            this.Vontxt.Name = "Vontxt";
+            this.Vontxt.Size = new System.Drawing.Size(178, 33);
+            this.Vontxt.TabIndex = 23;
             // 
             // label4
             // 
@@ -136,15 +136,15 @@
             this.label4.Size = new System.Drawing.Size(0, 25);
             this.label4.TabIndex = 21;
             // 
-            // label3
+            // Fehlermeldung
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(103, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(303, 25);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Füllen Sie bitte alle Felder aus";
-            this.label3.Visible = false;
+            this.Fehlermeldung.AutoSize = true;
+            this.Fehlermeldung.Location = new System.Drawing.Point(103, 29);
+            this.Fehlermeldung.Name = "Fehlermeldung";
+            this.Fehlermeldung.Size = new System.Drawing.Size(303, 25);
+            this.Fehlermeldung.TabIndex = 20;
+            this.Fehlermeldung.Text = "Füllen Sie bitte alle Felder aus";
+            this.Fehlermeldung.Visible = false;
             // 
             // Suchen
             // 
@@ -156,33 +156,33 @@
             this.Suchen.UseVisualStyleBackColor = true;
             this.Suchen.Click += new System.EventHandler(this.Suchen_Click);
             // 
-            // dateTimePicker2
+            // Kalender
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(133, 501);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(273, 31);
-            this.dateTimePicker2.TabIndex = 18;
-            this.dateTimePicker2.Value = new System.DateTime(2017, 5, 14, 0, 0, 0, 0);
+            this.Kalender.Location = new System.Drawing.Point(133, 501);
+            this.Kalender.Name = "Kalender";
+            this.Kalender.Size = new System.Drawing.Size(273, 31);
+            this.Kalender.TabIndex = 18;
+            this.Kalender.Value = new System.DateTime(2017, 5, 14, 0, 0, 0, 0);
             // 
-            // label1
+            // Nachlbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(190, 263);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 36);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Nach:";
+            this.Nachlbl.AutoSize = true;
+            this.Nachlbl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nachlbl.Location = new System.Drawing.Point(190, 263);
+            this.Nachlbl.Name = "Nachlbl";
+            this.Nachlbl.Size = new System.Drawing.Size(98, 36);
+            this.Nachlbl.TabIndex = 15;
+            this.Nachlbl.Text = "Nach:";
             // 
-            // label2
+            // Vonlbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(210, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 36);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Von:";
+            this.Vonlbl.AutoSize = true;
+            this.Vonlbl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Vonlbl.Location = new System.Drawing.Point(210, 73);
+            this.Vonlbl.Name = "Vonlbl";
+            this.Vonlbl.Size = new System.Drawing.Size(78, 36);
+            this.Vonlbl.TabIndex = 14;
+            this.Vonlbl.Text = "Von:";
             // 
             // tabPage2
             // 
@@ -206,7 +206,6 @@
             this.listView2.TabIndex = 4;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
-            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // Los
             // 
@@ -235,14 +234,14 @@
             this.Station.TabIndex = 0;
             this.Station.Text = "Stationen";
             // 
-            // Anfangsview
+            // Fahrplan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1468, 841);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Anfangsview";
-            this.Text = "Anfangsview";
+            this.Name = "Fahrplan";
+            this.Text = "Fahrplan";
             this.Load += new System.EventHandler(this.Anfangsview_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -258,20 +257,20 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button Suchen;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker Kalender;
+        private System.Windows.Forms.Label Nachlbl;
+        private System.Windows.Forms.Label Vonlbl;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label Station;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label Fehlermeldung;
         private System.Windows.Forms.Button Los;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.ComboBox textBox4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox textBox3;
+        private System.Windows.Forms.ComboBox Vontxt;
+        private System.Windows.Forms.Button KarteNach;
+        private System.Windows.Forms.Button KarteVon;
+        private System.Windows.Forms.ComboBox nachtxt;
         private System.Windows.Forms.ListView Ausgabe;
     }
 }

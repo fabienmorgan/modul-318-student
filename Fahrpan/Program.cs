@@ -16,7 +16,7 @@ namespace Fahrpan
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Anfangsview());
+            Application.Run(new Fahrplan());
         }
     }
 }

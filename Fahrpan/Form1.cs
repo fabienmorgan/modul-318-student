@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Fahrpan
 {
-    public partial class Anfangsview : Form
+    public partial class Fahrplan : Form
     {
-        private ITransport testee;
+        private ITransport Transport;
         private String input;
         private bool needAutoCompleteUpdate = false;
         private String Kürzungsdauer(string result)
@@ -21,33 +21,33 @@ namespace Fahrpan
             String Dauer = result.Substring(3, 5);
             return Dauer;
         }
-        public Anfangsview()
+        public Fahrplan()
         {
             InitializeComponent();
-            testee = new Transport();
-            dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.CustomFormat = "dd.MM.yyyy | HH:mm";
-            textBox4.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            this.textBox4.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            this.textBox4.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            Transport = new Transport();
+            Kalender.Format = DateTimePickerFormat.Custom;
+            Kalender.CustomFormat = "dd.MM.yyyy | HH:mm";
+            Vontxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.Vontxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.Vontxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         private void Suchen_Click(object sender, EventArgs e)
         {
 
-            if (textBox3.Text == "" || textBox4.Text == "")
+            if (nachtxt.Text == "" || Vontxt.Text == "")
             {
-                label3.Visible = true;
+                Fehlermeldung.Visible = true;
             }
             else
             {
                 Ausgabe.Items.Clear();
                 var testee = new Transport();
-                string inputTime = dateTimePicker2.Text;
+                string inputTime = Kalender.Text;
                 var date = DateTime.Parse(inputTime.Substring(0, 10));
                 String formattetDate = date.ToString("yyyy-MM-dd");
                 String time = inputTime.Substring(12, 6);
-                var connectionlist = testee.GetConnections(textBox4.Text, textBox3.Text, formattetDate, time);
+                var connectionlist = testee.GetConnections(Vontxt.Text, nachtxt.Text, formattetDate, time);
 
 
 
@@ -61,12 +61,6 @@ namespace Fahrpan
                     var arrival = DateTime.Parse(connection.To.Arrival);
 
 
-                   /*AcceptButton* Ausgabe.Items.Add("Von: " + from.Station.Name + "\n"
-                        + "   Abfahrt um: " + departure.ToString("hh.mm") + "\n"
-                        + "   Nach: " + to.Station.Name + "\n"
-                        + "   Ankunft an: " + arrival.ToString("hh.mm") + "\n"
-                        + "   Dauer: " + Kürzungsdauer(connection.Duration));*/
-
                     var ausgabe = new ListViewItem(new[] { from.Station.Name, departure.ToString("hh.mm"), to.Station.Name, arrival.ToString("hh.mm"), Kürzungsdauer(connection.Duration) });
                     Ausgabe.Items.Add(ausgabe);
                 }
@@ -76,14 +70,14 @@ namespace Fahrpan
         private void Los_Click(object sender, EventArgs e)
         {
             listView2.Items.Clear();
-            testee = new Transport();
-            Stations stations = testee.GetStations(textBox1.Text);
+            Transport = new Transport();
+            Stations stations = Transport.GetStations(textBox1.Text);
             Station station = stations.StationList[0];
             String id = station.Id;
 
 
 
-            StationBoardRoot stationBoard = testee.GetStationBoard(textBox1.Text, id);
+            StationBoardRoot stationBoard = Transport.GetStationBoard(textBox1.Text, id);
 
 
             foreach (StationBoard entries in stationBoard.Entries)
@@ -98,7 +92,7 @@ namespace Fahrpan
         }
         /*public void textbox3_Autocomplete(object sender, EventArgs e)
         {
-            input = textBox4.Text;
+            input = Vontxt.Text;
 
             if (input.Length >= 3)
             {
@@ -114,28 +108,18 @@ namespace Fahrpan
 
                 foreach (Station stationName in stations.StationList)
                 {
-                    textBox4.AutoCompleteCustomSource.Add(stationName.Name);
+                    Vontxt.AutoCompleteCustomSource.Add(stationName.Name);
                 }
-                this.textBox4.AutoCompleteMode = AutoCompleteMode.Suggest;
+                this.Vontxt.AutoCompleteMode = AutoCompleteMode.Suggest;
             }
             else
             {
-                //this.textBox4.AutoCompleteMode = AutoCompleteMode.None;
+                //this.Vontxt.AutoCompleteMode = AutoCompleteMode.None;
             }
         }
         */
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void Anfangsview_Load(object sender, EventArgs e)
         {
@@ -154,14 +138,14 @@ namespace Fahrpan
 
         private void button1_Click(object sender, EventArgs e)
         {
-            testee = new Transport();
-            Stations stations = testee.GetStations(textBox4.Text);
+            Transport = new Transport();
+            Stations stations = Transport.GetStations(Vontxt.Text);
 
             if (stations.StationList.Count > 0)
             {
                 Station station = stations.StationList[0];
 
-
+                //Öffnet den Browser mit der URL von Google Maps und dem Ort der Station
                 System.Diagnostics.Process.Start("https://www.google.ch/maps/search/" + station.Name + " haltestelle");
             }
             else
@@ -172,8 +156,8 @@ namespace Fahrpan
 
         private void button2_Click(object sender, EventArgs e)
         {
-            testee = new Transport();
-            Stations stations = testee.GetStations(textBox3.Text);
+            Transport = new Transport();
+            Stations stations = Transport.GetStations(nachtxt.Text);
 
             if (stations.StationList.Count > 0)
             {
@@ -190,20 +174,16 @@ namespace Fahrpan
 
         private void shareEmail(String von, String abfahrtszeit, String zu, String ankunft, String dauer)
         {
+            //Erstellt eine Email
             String url = "mailto:?subject=Öv%20Verbindungen&body=ÖV%20Verbindung%20zwischen%20" +
                             von + " - " + zu + "%0A" +
-                            "Abfahrt: " + abfahrtszeit  + "%0A" +
+                            "Abfahrt: " + abfahrtszeit + "%0A" +
                             "Ankunft: " + ankunft + "%0A" +
                             "Dauer: " + dauer;
             System.Diagnostics.Process.Start(url);
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-
-        }
 
         private void Ausgabe_MouseClick(object sender, MouseEventArgs e)
         {
@@ -216,5 +196,4 @@ namespace Fahrpan
         }
     }
 }
- 
- 
+
