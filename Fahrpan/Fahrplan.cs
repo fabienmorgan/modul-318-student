@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace Fahrpan
 {
+    
     public partial class Fahrplan : Form
     {
         private ITransport Transport;
@@ -42,12 +43,12 @@ namespace Fahrpan
             else
             {
                 Ausgabe.Items.Clear();
-                var testee = new Transport();
+                var Transport = new Transport();
                 string inputTime = Kalender.Text;
                 var date = DateTime.Parse(inputTime.Substring(0, 10));
                 String formattetDate = date.ToString("yyyy-MM-dd");
                 String time = inputTime.Substring(12, 6);
-                var connectionlist = testee.GetConnections(Vontxt.Text, nachtxt.Text, formattetDate, time);
+                var connectionlist = Transport.GetConnections(Vontxt.Text, nachtxt.Text, formattetDate, time);
 
 
 
