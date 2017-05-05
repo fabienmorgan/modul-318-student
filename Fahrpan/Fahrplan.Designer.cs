@@ -98,14 +98,14 @@
             this.nachtxt.Location = new System.Drawing.Point(158, 302);
             this.nachtxt.Name = "nachtxt";
             this.nachtxt.Size = new System.Drawing.Size(178, 33);
-            this.nachtxt.TabIndex = 32;
+            this.nachtxt.TabIndex = 3;
             // 
             // KarteNach
             // 
             this.KarteNach.Location = new System.Drawing.Point(158, 365);
             this.KarteNach.Name = "KarteNach";
             this.KarteNach.Size = new System.Drawing.Size(178, 39);
-            this.KarteNach.TabIndex = 25;
+            this.KarteNach.TabIndex = 4;
             this.KarteNach.Text = "Karte";
             this.KarteNach.UseVisualStyleBackColor = true;
             this.KarteNach.Click += new System.EventHandler(this.button2_Click);
@@ -115,7 +115,7 @@
             this.KarteVon.Location = new System.Drawing.Point(158, 183);
             this.KarteVon.Name = "KarteVon";
             this.KarteVon.Size = new System.Drawing.Size(178, 39);
-            this.KarteVon.TabIndex = 24;
+            this.KarteVon.TabIndex = 2;
             this.KarteVon.Text = "Karte";
             this.KarteVon.UseVisualStyleBackColor = true;
             this.KarteVon.Click += new System.EventHandler(this.button1_Click);
@@ -126,7 +126,7 @@
             this.Vontxt.Location = new System.Drawing.Point(158, 133);
             this.Vontxt.Name = "Vontxt";
             this.Vontxt.Size = new System.Drawing.Size(178, 33);
-            this.Vontxt.TabIndex = 23;
+            this.Vontxt.TabIndex = 1;
             // 
             // label4
             // 

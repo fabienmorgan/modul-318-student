@@ -43,11 +43,12 @@ namespace Fahrpan
             else
             {
                 Ausgabe.Items.Clear();
+               
                 var Transport = new Transport();
                 string inputTime = Kalender.Text;
-                var date = DateTime.Parse(inputTime.Substring(0, 10));
-                String formattetDate = date.ToString("yyyy-MM-dd");
-                String time = inputTime.Substring(12, 6);
+                var datum = DateTime.Parse(inputTime.Substring(0, 10));
+                String formattetDate = datum.ToString("yyyy-MM-dd");
+                var time = inputTime.Substring(12, 6);
                 var connectionlist = Transport.GetConnections(Vontxt.Text, nachtxt.Text, formattetDate, time);
 
 
@@ -58,12 +59,13 @@ namespace Fahrpan
 
                     ConnectionPoint from = connection.From;
                     ConnectionPoint to = connection.To;
-                    var departure = DateTime.Parse(connection.From.Departure);
-                    var arrival = DateTime.Parse(connection.To.Arrival);
+                    var abfahrt = DateTime.Parse(connection.From.Departure);
+                    var ankunft = DateTime.Parse(connection.To.Arrival);
 
 
-                    var ausgabe = new ListViewItem(new[] { from.Station.Name, departure.ToString("hh.mm"), to.Station.Name, arrival.ToString("hh.mm"), Kürzungsdauer(connection.Duration) });
+                    var ausgabe = new ListViewItem(new[] { from.Station.Name, abfahrt.ToString("hh.mm"), to.Station.Name, ankunft.ToString("hh.mm"), Kürzungsdauer(connection.Duration) });
                     Ausgabe.Items.Add(ausgabe);
+    
                 }
             }
         }
@@ -72,8 +74,8 @@ namespace Fahrpan
         {
             listView2.Items.Clear();
             Transport = new Transport();
-            Stations stations = Transport.GetStations(textBox1.Text);
-            Station station = stations.StationList[0];
+            Stations stationen = Transport.GetStations(textBox1.Text);
+            Station station = stationen.StationList[0];
             String id = station.Id;
 
 
@@ -105,20 +107,20 @@ namespace Fahrpan
             }
             if (needAutoCompleteUpdate)
             {
-                var stations = testee.GetStations(input);
+                var stationen = Transport.GetStations(input);
 
-                foreach (Station stationName in stations.StationList)
+                foreach (Stations stationName in stationen.StationList)
                 {
-                    Vontxt.AutoCompleteCustomSource.Add(stationName.Name);
+                    Vontxt.AutoCompleteCustomSource.Add(Ausgabe.Name);
                 }
                 this.Vontxt.AutoCompleteMode = AutoCompleteMode.Suggest;
             }
             else
             {
-                //this.Vontxt.AutoCompleteMode = AutoCompleteMode.None;
+                this.Vontxt.AutoCompleteMode = AutoCompleteMode.None;
             }
-        }
-        */
+        }*/
+        
 
 
 
@@ -135,6 +137,8 @@ namespace Fahrpan
             Ausgabe.Columns.Add("Nach");
             Ausgabe.Columns.Add("An");
             Ausgabe.Columns.Add("Dauer");
+
+            this.Kalender.Value = DateTime.Now;
         }
 
         private void button1_Click(object sender, EventArgs e)
