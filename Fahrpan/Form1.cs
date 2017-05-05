@@ -41,7 +41,7 @@ namespace Fahrpan
             }
             else
             {
-                listBox1.Items.Clear();
+                Ausgabe.Items.Clear();
                 var testee = new Transport();
                 string inputTime = dateTimePicker2.Text;
                 var date = DateTime.Parse(inputTime.Substring(0, 10));
@@ -61,11 +61,14 @@ namespace Fahrpan
                     var arrival = DateTime.Parse(connection.To.Arrival);
 
 
-                    listBox1.Items.Add("Von: " + from.Station.Name + "\n"
+                   /*AcceptButton* Ausgabe.Items.Add("Von: " + from.Station.Name + "\n"
                         + "   Abfahrt um: " + departure.ToString("hh.mm") + "\n"
                         + "   Nach: " + to.Station.Name + "\n"
                         + "   Ankunft an: " + arrival.ToString("hh.mm") + "\n"
-                        + "   Dauer: " + Kürzungsdauer(connection.Duration));
+                        + "   Dauer: " + Kürzungsdauer(connection.Duration));*/
+
+                    var ausgabe = new ListViewItem(new[] { from.Station.Name, departure.ToString("hh.mm"), to.Station.Name, arrival.ToString("hh.mm"), Kürzungsdauer(connection.Duration) });
+                    Ausgabe.Items.Add(ausgabe);
                 }
             }
         }
@@ -93,7 +96,7 @@ namespace Fahrpan
 
 
         }
-        public void textbox3_Autocomplete(object sender, EventArgs e)
+        /*public void textbox3_Autocomplete(object sender, EventArgs e)
         {
             input = textBox4.Text;
 
@@ -120,6 +123,7 @@ namespace Fahrpan
                 //this.textBox4.AutoCompleteMode = AutoCompleteMode.None;
             }
         }
+        */
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -140,6 +144,12 @@ namespace Fahrpan
             listView2.Columns.Add("Nummer");
             listView2.Columns.Add("Nach");
             listView2.Columns[3].Width = 130;
+
+            Ausgabe.Columns.Add("Von");
+            Ausgabe.Columns.Add("Ab");
+            Ausgabe.Columns.Add("Nach");
+            Ausgabe.Columns.Add("An");
+            Ausgabe.Columns.Add("Dauer");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -178,13 +188,13 @@ namespace Fahrpan
             }
         }
 
-        private void shareEmail(String from, String to, String timefrom, String timeto, String time)
+        private void shareEmail(String von, String abfahrtszeit, String zu, String ankunft, String dauer)
         {
             String url = "mailto:?subject=Öv%20Verbindungen&body=ÖV%20Verbindung%20zwischen%20" +
-                            from + " - " + to + "%0A" +
-                            "Abfahrt: " + timefrom + "%0A" +
-                            "Ankunft: " + timeto + "%0A" +
-                            "Dauer: " + time;
+                            von + " - " + zu + "%0A" +
+                            "Abfahrt: " + abfahrtszeit  + "%0A" +
+                            "Ankunft: " + ankunft + "%0A" +
+                            "Dauer: " + dauer;
             System.Diagnostics.Process.Start(url);
 
         }
@@ -194,5 +204,17 @@ namespace Fahrpan
 
 
         }
+
+        private void Ausgabe_MouseClick(object sender, MouseEventArgs e)
+        {
+            shareEmail(Ausgabe.SelectedItems[0].SubItems[0].Text,
+                       Ausgabe.SelectedItems[0].SubItems[1].Text,
+                       Ausgabe.SelectedItems[0].SubItems[2].Text,
+                       Ausgabe.SelectedItems[0].SubItems[3].Text,
+                       Ausgabe.SelectedItems[0].SubItems[4].Text
+                       );
+        }
     }
 }
+ 
+ 

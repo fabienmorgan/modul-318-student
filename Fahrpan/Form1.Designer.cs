@@ -30,16 +30,11 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Ausgabe = new System.Windows.Forms.ListView();
             this.textBox3 = new System.Windows.Forms.ComboBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.ComboBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Suchen = new System.Windows.Forms.Button();
@@ -68,16 +63,11 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.Ausgabe);
             this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.button8);
-            this.tabPage1.Controls.Add(this.button7);
-            this.tabPage1.Controls.Add(this.button6);
-            this.tabPage1.Controls.Add(this.button5);
-            this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.textBox4);
-            this.tabPage1.Controls.Add(this.listBox1);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.Suchen);
@@ -92,6 +82,16 @@
             this.tabPage1.Text = "Fahrplan";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // Ausgabe
+            // 
+            this.Ausgabe.Location = new System.Drawing.Point(664, 115);
+            this.Ausgabe.Name = "Ausgabe";
+            this.Ausgabe.Size = new System.Drawing.Size(629, 537);
+            this.Ausgabe.TabIndex = 33;
+            this.Ausgabe.UseCompatibleStateImageBehavior = false;
+            this.Ausgabe.View = System.Windows.Forms.View.Details;
+            this.Ausgabe.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Ausgabe_MouseClick);
+            // 
             // textBox3
             // 
             this.textBox3.FormattingEnabled = true;
@@ -99,52 +99,6 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(178, 33);
             this.textBox3.TabIndex = 32;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(1557, 115);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(93, 37);
-            this.button8.TabIndex = 31;
-            this.button8.Text = "EMail";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(1557, 160);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(93, 39);
-            this.button7.TabIndex = 30;
-            this.button7.Text = "EMail";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(1557, 205);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(93, 37);
-            this.button6.TabIndex = 29;
-            this.button6.Text = "EMail";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(1557, 248);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(93, 37);
-            this.button5.TabIndex = 28;
-            this.button5.Text = "EMail";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1557, 73);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 36);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "EMail";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -173,17 +127,6 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(178, 33);
             this.textBox4.TabIndex = 23;
-            this.textBox4.TextChanged += new System.EventHandler(this.textbox3_Autocomplete);
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(580, 73);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(956, 679);
-            this.listBox1.TabIndex = 22;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -296,7 +239,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2102, 841);
+            this.ClientSize = new System.Drawing.Size(1468, 841);
             this.Controls.Add(this.tabControl1);
             this.Name = "Anfangsview";
             this.Text = "Anfangsview";
@@ -324,17 +267,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Los;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ComboBox textBox4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox textBox3;
+        private System.Windows.Forms.ListView Ausgabe;
     }
 }
 
